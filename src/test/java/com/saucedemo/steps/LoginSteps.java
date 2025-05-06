@@ -62,4 +62,30 @@ public class LoginSteps {
         String currentUrl = driver.getCurrentUrl();
         Assert.assertEquals(expectedUrlAfterLogin, currentUrl);
     }
+
+    @When("user tries to log in with invalid credentials")
+    public void user_tries_to_log_in_with_invalid_credentials() {
+        loginPage.login("standard_user", "wrong_password");
+    }
+
+
+    @Then("the url stays the same")
+    public void the_url_stays_the_same() {
+        String expectedUrlAfterLogin = loginPage.url;
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertEquals(expectedUrlAfterLogin, currentUrl);
+    }
+
+    @Then("the input fields are highlighted in red")
+    public void the_input_fields_are_highlighted_in_red() {
+        Assert.assertTrue(loginPage.getUserNameInputClass().contains("error"));
+        Assert.assertTrue(loginPage.getPasswordInputClass().contains("error"));
+    }
+
+
+    @Then("an error message is displayed")
+    public void an_error_message_is_displayed() {
+        String expectedErrorMessage = "Epic sadface: Username and password do not match any user in this service";
+        Assert.assertEquals(expectedErrorMessage, loginPage.getErrorMessage());
+    }
 }
