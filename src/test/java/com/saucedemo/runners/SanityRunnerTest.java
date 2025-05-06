@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = {"src/test/resources/com/saucedemo/features/"},
         glue = {"com/saucedemo/steps"},
         tags = "@Sanity",
-        plugin = {"pretty", "html:target/cucumber-reports", "json:target/cucumber.json"},
+        plugin = {"pretty", "html:target/cucumber-sanity-reports", "json:target/cucumber-sanity.json"},
         monochrome = true
 )
 public class SanityRunnerTest {

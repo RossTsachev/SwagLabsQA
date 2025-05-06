@@ -38,6 +38,7 @@
                         <configuration>
                             <projectName>Cucumber HTML Reports</projectName>
                             <outputDirectory>target/cucumber-report-html</outputDirectory>
+                            <cucumberOutput>target</cucumberOutput>
                         </configuration>
                     </execution>
                 </executions>
