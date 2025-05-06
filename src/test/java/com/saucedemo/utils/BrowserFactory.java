@@ -42,9 +42,9 @@ public class BrowserFactory {
 
     public static void closeBrowser() {
         for (String key : drivers.keySet()) {
-            drivers.get(key).close();
             drivers.get(key).quit();
         }
+        drivers.clear();
     }
 
     private static boolean isDriverInvalid(WebDriver driver) {

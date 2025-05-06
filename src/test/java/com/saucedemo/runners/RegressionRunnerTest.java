@@ -8,9 +8,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/resources/com/saucedemo/features/"},
         glue = {"com/saucedemo/steps"},
-        tags = "@Sanity",
+        tags = "@Regression",
         plugin = {"pretty", "html:target/cucumber-reports", "json:target/cucumber.json"},
         monochrome = true
 )
-public class SanityRunnerTest {
+public class RegressionRunnerTest {
 }
