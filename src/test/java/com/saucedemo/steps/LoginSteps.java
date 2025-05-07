@@ -1,5 +1,6 @@
 package com.saucedemo.steps;
 
+import com.saucedemo.hooks.TestSetup;
 import com.saucedemo.pages.LoginPage;
 import com.saucedemo.pages.ProductListPage;
 import com.saucedemo.utils.BrowserFactory;
@@ -18,21 +19,13 @@ import org.junit.Assert;
 import java.time.Duration;
 
 public class LoginSteps {
-    WebDriver driver;
+    WebDriver driver = TestSetup.driver;
     LoginPage loginPage;
     ProductListPage productListPage;
 
-    @Before
-    public void setUp() {
-        driver = BrowserFactory.getBrowser("Chrome");
-
+    public LoginSteps() {
         loginPage = PageFactory.initElements(driver, LoginPage.class);
         productListPage = PageFactory.initElements(driver, ProductListPage.class);
-    }
-
-    @After
-    public void tearDown() {
-        BrowserFactory.closeBrowser();
     }
 
     @Given("user is on home page")
