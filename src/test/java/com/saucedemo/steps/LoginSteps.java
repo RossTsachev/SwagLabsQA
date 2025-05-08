@@ -56,9 +56,9 @@ public class LoginSteps {
         Assert.assertEquals(expectedUrlAfterLogin, currentUrl);
     }
 
-    @When("user tries to log in with invalid credentials")
-    public void user_tries_to_log_in_with_invalid_credentials() {
-        loginPage.login("standard_user", "wrong_password");
+    @When("^user tries to log in with invalid (.*) and (.*)$")
+    public void user_tries_to_log_in_with_invalid_credentials(String username, String password) {
+        loginPage.login(username, password);
     }
 
 

@@ -8,10 +8,15 @@ Feature:Login
     And the product list page is displayed
 
   @Sanity
-  Scenario: User tries to login with invalid credentials
+  Scenario Outline: User tries to login with invalid credentials
     Given user is on home page
-    When user tries to log in with invalid credentials
+    When user tries to log in with invalid <username> and <password>
     Then the url stays the same
     And the input fields are highlighted in red
     And an error message is displayed
+
+    Examples:
+      | username      | password       |
+      | standard_user | wrong_password |
+      | wrong_user    | secret_sauce   |
     
