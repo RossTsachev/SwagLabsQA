@@ -19,4 +19,16 @@ Feature:Login
       | username      | password       |
       | standard_user | wrong_password |
       | wrong_user    | secret_sauce   |
-    
+
+  @Regression
+  Scenario: User logs in using only keyboard
+    Given user is on home page
+    When user presses Tab key
+    Then the username field becomes active
+    When user enters valid username
+    And user presses Tab key
+    Then the password field becomes active
+    When user enters valid password
+    And user presses Enter key
+    Then user is logged in to the site
+    And the product list page is displayed

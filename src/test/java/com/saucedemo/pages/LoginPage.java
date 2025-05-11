@@ -39,8 +39,16 @@ public class LoginPage {
         loginButton.click();
     }
 
+    public WebElement getUserNameInput() {
+        return userName;
+    }
+
     public String getUserNameInputClass() {
         return userName.getAttribute("class");
+    }
+
+    public WebElement getPasswordInput() {
+        return password;
     }
 
     public String getPasswordInputClass() {
