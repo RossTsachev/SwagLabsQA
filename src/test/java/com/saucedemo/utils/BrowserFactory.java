@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +30,10 @@ public class BrowserFactory {
                 driver = drivers.get("Firefox");
                 if (driver == null || isDriverInvalid(driver)) {
                     System.setProperty("webdriver.gecko.driver", "c:/Code/BrowserDrivers/geckodriver.exe");
-                    driver = new FirefoxDriver();
+                    FirefoxOptions options = new FirefoxOptions();
+                    options.addPreference("security.fileuri.strict_origin_policy", false);
+                    options.addArguments("--binary", "C:/Program Files/Mozilla Firefox/firefox.exe");
+                    driver = new FirefoxDriver(options);
                     drivers.put("Firefox", driver);
                 }
                 break;
