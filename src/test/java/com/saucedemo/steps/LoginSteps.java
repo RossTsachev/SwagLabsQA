@@ -31,11 +31,6 @@ public class LoginSteps {
 
     @Given("user is on home page")
     public void user_is_on_home_page() {
-        WebDriver driver = BrowserFactory.getBrowser("Chrome");
-
-        LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-        ProductListPage productListPage = PageFactory.initElements(driver, ProductListPage.class);
-
         loginPage.goToPage();
     }
 

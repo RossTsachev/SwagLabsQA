@@ -11,7 +11,7 @@ public class TestSetup {
 
     @Before
     public void setUp() {
-        driver = BrowserFactory.getBrowser("Chrome");
+        driver = BrowserFactory.getBrowser("Firefox");
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
     }
 
