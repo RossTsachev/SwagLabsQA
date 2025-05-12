@@ -32,6 +32,7 @@ public class BrowserFactory {
                     System.setProperty("webdriver.gecko.driver", "c:/Code/BrowserDrivers/geckodriver.exe");
                     FirefoxOptions options = new FirefoxOptions();
                     options.addPreference("security.fileuri.strict_origin_policy", false);
+                    options.addPreference("javascript.enabled", true);
                     options.addArguments("--binary", "C:/Program Files/Mozilla Firefox/firefox.exe");
                     driver = new FirefoxDriver(options);
                     drivers.put("Firefox", driver);
